@@ -17,8 +17,11 @@ const ContactForm = () => {
     const nameOnTheList = contacts.some(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
+
+    const newContact = { name: name, number: number };
+
     if (!nameOnTheList) {
-      dispatch(addContact(name, number));
+      dispatch(addContact(newContact));
       form.reset();
     } else {
       alert(`${name} is in use. Try another name.`);
